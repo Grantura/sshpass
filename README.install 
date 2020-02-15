@@ -1,0 +1,43 @@
+$ scp -P 222 sshpass-1.06-2.ipfire root@ipfire:/tmp
+sshpass-1.06-2.ipfire                          100%   19MB   9.6MB/s   00:02
+
+$ ssh -p 222 root@ipfire
+Last login: Thu Nov 18 08:51:10 2010 from foo.bar
+
+
+
+$# cd /opt/pakfire/tmp/
+
+$# tar xvf /tmp/sshpass-1.06-2.ipfire
+files
+install.sh
+uninstall.sh
+update.sh
+ROOTFILES
+
+$# ls -l
+total 39426
+-rw-r--r-- 1 root root 20080640 2010-11-17 18:33 files
+-rw-r--r-- 1 root root 20111360 2010-11-18 08:50 sshpass-1.06-2.ipfire
+-rwxr-xr-x 1 root root     1735 2010-11-17 18:33 install.sh
+-rw-r--r-- 1 root root    13306 2010-11-17 18:33 ROOTFILES
+-rwxr-xr-x 1 root root     1717 2010-11-17 18:33 uninstall.sh
+-rwxr-xr-x 1 root root     1691 2010-11-17 18:33 update.sh
+
+$# ./install.sh
+Extracting files...
+/usr/local/bin/sshpass
+/usr/local/share/man/man1/sshpass.1
+
+...Finished.
+
+$# rm *
+rm: remove regular file 'files.tar.xz'? y
+rm: remove regular file 'install.sh'? y
+rm: remove regular file 'ROOTFILES'? y
+rm: remove regular file 'uninstall.sh'? y
+rm: remove regular file 'update.sh'? y
+
+$# logout
+Bye bye.
+Connection to ipfire closed.
